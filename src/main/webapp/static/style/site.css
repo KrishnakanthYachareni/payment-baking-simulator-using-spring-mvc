@@ -1,0 +1,77 @@
+/*
+ * Copyright (c) 2019 Mastercard. All rights reserved.
+ */
+
+body {
+    background-image: url("images/test_system_bg.png");
+    background-repeat: repeat;
+    background-position: right bottom;
+    background-color: #FFFFFF;
+}
+
+#leftColumn {
+    clear: both;
+    float: left;
+    margin: 1em 0 0 0;
+    padding: 10px;
+    overflow: auto;
+    background-color: transparent;
+    border: 1px solid #888;
+    width: 35%;
+    height: 500px
+}
+
+#rightColumn {
+    float: left;
+    margin: 1em 0 0 30px;
+    padding: 10px;
+    overflow: auto;
+    background-color: transparent;
+    border: 1px solid #888;
+    width: 50%;
+    height: 500px
+}
+
+div {
+    clear: both;
+    margin: 0;
+    padding: 0.5em 0 0 0;
+    overflow: visible;
+}
+
+label {
+    display: block;
+    float: left;
+    text-align: right;
+    padding: 2px 1ex 6px 0;
+    vertical-align: baseline;
+    font-weight: 700;
+    font-size: 12px
+}
+
+.error {
+    width: auto;
+    color: #ff0000;
+    text-align: left;
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+#submitDiv {
+    clear: both;
+    float: left;
+}
+
+#buttonDiv {
+    display: inline;
+}
+
+.required:after {
+    content: "*";
+    color: #cc0000;
+}
+
+hr {
+    clear: both;
+}
+

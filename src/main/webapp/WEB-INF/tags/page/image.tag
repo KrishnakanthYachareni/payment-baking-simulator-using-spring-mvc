@@ -1,0 +1,1 @@
+<%@ tag display-name="Image" body-content="empty" %><%@ attribute name="src" required="true" %><%@ attribute name="id" required="false" %><%@ attribute name="attributes" required="false" %><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><img id="${id}" src="<c:url value="/static/style/images/" />${src}" ${attributes} />
