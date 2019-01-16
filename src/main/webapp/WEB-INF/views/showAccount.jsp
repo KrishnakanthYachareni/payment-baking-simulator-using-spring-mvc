@@ -30,6 +30,8 @@
 <p><spring:message code="label.accountNo"/>: ${account.accountNo}</p>
 <p><spring:message code="label.accountHolderName"/>: ${account.accountHolderName}</p>
 <p><spring:message code="label.balance"/>: ${account.balance}</p>
-
+<p><spring:message code="label.accountType"/>: ${account.accountType}</p>
+<p><spring:message code="label.dob"/>: ${account.dateOfBirth}</p>
+<p><spring:message code="label.krcode"/>: ${account.krCode}</p>
 </body>
 </html>

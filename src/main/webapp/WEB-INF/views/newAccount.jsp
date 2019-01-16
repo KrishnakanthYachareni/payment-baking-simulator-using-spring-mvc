@@ -27,15 +27,49 @@
     <table>
         <tr>
             <td><spring:message code="label.accountNo"/>:</td>
-            <td><form:input path="accountNo" size="30"/></td>
+            <td>
+                <form:input path="accountNo" size="30"/>
+                <form:errors path="accountNo" cssClass="error"/>
+            </td>
         </tr>
         <tr>
             <td><spring:message code="label.accountHolderName"/>:</td>
-            <td><form:input path="accountHolderName" size="30"/></td>
+            <td>
+                <form:input path="accountHolderName" size="30"/>
+                <form:errors path="accountHolderName" cssClass="error"/>
+            </td>
         </tr>
         <tr>
             <td><spring:message code="label.balance"/>:</td>
-            <td><form:input path="balance" size="30"/></td>
+            <td>
+                <form:input path="balance" size="30"/>
+                <form:errors path="balance" cssClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td><spring:message code="label.accountType"/>:</td>
+            <td>
+                <form:select path="accountType">
+                    <form:option value="">Select Account Type</form:option>
+                    <form:option value="SAVINGS">Savings</form:option>
+                    <form:option value="CURRENT">Current</form:option>
+                </form:select>
+                <form:errors path="accountType" cssClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td><spring:message code="label.dob"/>:</td>
+            <td>
+                <form:input path="dateOfBirth" size="30"/>
+                <form:errors path="dateOfBirth" cssClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td><spring:message code="label.krcode"/>:</td>
+            <td>
+                <form:input path="krCode" size="30"/>
+                <form:errors path="krCode" cssClass="error"/>
+            </td>
         </tr>
         <tr>
             <td colspan="2" align="center">
