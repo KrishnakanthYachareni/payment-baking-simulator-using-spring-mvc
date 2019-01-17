@@ -19,8 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.mastercard.demo.aop.Catch;
 import com.mastercard.demo.model.Account;
-import com.mastercard.demo.services.AccountService;
+import com.mastercard.demo.service.AccountService;
 
 @Controller
 @RequestMapping("/bankapp")
@@ -42,6 +43,7 @@ public class AccountController {
     }
 
     @RequestMapping("/new")
+    @Catch
     public String newAccount(Model model) {
         model.addAttribute("account", new Account());
         return "account-form";
@@ -53,7 +55,8 @@ public class AccountController {
     }
 
     @RequestMapping(value = "/saveAccount", method = RequestMethod.POST)
-    public String saveAccount(@ModelAttribute("account") @Valid Account account, BindingResult bindingResult) {
+    public String saveAccount(@ModelAttribute("account") @Valid Account account, BindingResult bindingResult,
+            Model model) {
 
         // Method -1
         /*@RequestParam("accountNo") String accountNo,
@@ -80,14 +83,37 @@ public class AccountController {
         return "showAccount";*/
 
         // bindingResult.rejectValue("accountNo", "error.message.mandatory");
-        if (bindingResult.hasErrors()) {
+
+        // Without exception displaying
+        /* if (bindingResult.hasErrors()) {
             return "account-form";
         } else {
             accountService.saveAccount(account);
             return "redirect:/bankapp/list";
+        }*/
+
+        // To display the error message on UI in case of an exception
+        if (bindingResult.hasErrors()) {
+            return "account-form";
+        } else {
+            String message = "";
+            boolean flag = true;
+            try {
+                flag = accountService.saveAccount(account);
+            } catch (Exception e) {
+                message = e.getMessage();
+                flag = false;
+            }
+            if (!flag) {
+                model.addAttribute("message", message);
+                return "account-form";
+            }
+            model.addAttribute("account", account);
+            return "redirect:/bankapp/list";
         }
     }
 
+    @Catch
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listAccounts(Model model) {
         List<Account> accounts = accountService.getAccounts();

@@ -54,9 +54,12 @@ public class AccountDaoImpl implements AccountDao {
     public Account getAccount(Integer accountNo) {
         try {
             AccountEntity accountEntity = entityManager.find(AccountEntity.class, accountNo);
-            return transformEntityToAccount(accountEntity);
+            if (null != accountEntity) {
+                return transformEntityToAccount(accountEntity);
+            }
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
         return null;
     }

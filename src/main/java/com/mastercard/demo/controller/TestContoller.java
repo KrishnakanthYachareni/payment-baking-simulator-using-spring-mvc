@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/test")
-public final class TestContoller {
+public class TestContoller {
 
     @RequestMapping(value = {"", "/index", "index*", "view/*"})
     public String methodWithMultiResourceNames() {
