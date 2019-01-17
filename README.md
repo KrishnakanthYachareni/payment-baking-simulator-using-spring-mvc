@@ -3,7 +3,7 @@ This  is  a simple banking application using spring mvc
 
 #### 1. @CrossOrigin:
 This annotation is used both at class and method level to enable cross origin requests. In many cases the host that serves JavaScript will be different from the host that serves the data. In such a case Cross Origin Resource Sharing (CORS) enables cross-domain communication.
-````$java
+````java
 @CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/account")
