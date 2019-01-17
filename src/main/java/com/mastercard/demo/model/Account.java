@@ -38,7 +38,7 @@ public class Account {
     private Date dateOfBirth;
 
     @NotNull
-    @KRCode(value = "PSUSA", message = "Security Code should start with PSUSAF")
+    @KRCode(value = "KK", message = "Security Code should start with KK")
     //@KRCode //with default messages
     private String krCode;
 

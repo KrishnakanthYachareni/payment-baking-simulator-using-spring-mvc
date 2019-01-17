@@ -4,8 +4,17 @@
 
 package com.mastercard.demo.services;
 
+import java.util.List;
+
 import com.mastercard.demo.model.Account;
 
 public interface AccountService {
+
     boolean saveAccount(Account account);
+
+    List<Account> getAccounts();
+
+    Account getAccount(Integer accountNo);
+
+    boolean deleteAccount(int accountNo);
 }

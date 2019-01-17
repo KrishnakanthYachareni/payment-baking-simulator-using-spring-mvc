@@ -17,8 +17,7 @@
 
 <html>
 <head>
-    <title><spring:message code="label.title"/></title>
-    <tf:htmlHead/>
+    <tf:htmlHead title="KB Bank:New Account"/>
 </head>
 <body>
 <h2>Please Fill Up the Form Details</h2>

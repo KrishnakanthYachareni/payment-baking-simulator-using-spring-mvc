@@ -4,6 +4,7 @@
 
 package com.mastercard.demo.controller;
 
+import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mastercard.demo.model.Account;
 import com.mastercard.demo.services.AccountService;
@@ -82,10 +84,31 @@ public class AccountController {
             return "account-form";
         } else {
             accountService.saveAccount(account);
-            return "redirect:/list";
+            return "redirect:/bankapp/list";
         }
     }
 
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String listAccounts(Model model) {
+        List<Account> accounts = accountService.getAccounts();
+        model.addAttribute("accounts", accounts);
+        return "listAccounts";
+    }
+
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public String updateAccount(@RequestParam("accountNo") int accountNo, Model model) {
+        Account account = accountService.getAccount(accountNo);
+        model.addAttribute("account", account);
+        return "account-form";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deleteAccount(@RequestParam("accountNo") int accountNo, Model model) {
+        accountService.deleteAccount(accountNo);
+        return "redirect:/bankapp/list";
+    }
+
+    // Wrong Resource path handling
     @RequestMapping("*")
     public String fallBackPage() {
         return "fileNotFound";

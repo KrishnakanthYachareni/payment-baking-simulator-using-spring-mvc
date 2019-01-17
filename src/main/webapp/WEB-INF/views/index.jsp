@@ -17,7 +17,7 @@
 <html>
 <head>
     <title>BankApp</title>
-    <tf:htmlHead/>
+    <tf:htmlHead title="KB Bank:Home"/>
 </head>
 <body>
 <h1>Welcome to KR Bank Application home page</h1>

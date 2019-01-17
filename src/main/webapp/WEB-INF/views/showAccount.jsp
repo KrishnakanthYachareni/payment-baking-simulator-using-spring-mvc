@@ -14,10 +14,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="tf" tagdir="/WEB-INF/tags/page" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title><spring:message code="label.title"/></title>
-    <tf:htmlHead/>
+    <tf:htmlHead title="KB Bank:Show Account "/>
 </head>
 <body>
 <h2>KR: Bank Account Details</h2>

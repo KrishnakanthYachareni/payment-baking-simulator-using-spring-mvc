@@ -4,6 +4,7 @@
 
 package com.mastercard.demo.services;
 
+import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,4 +24,23 @@ public class AccountServiceImpl implements AccountService {
     public boolean saveAccount(Account account) {
         return accountDao.saveAccount(account);
     }
+
+    @Override
+    @Transactional
+    public List<Account> getAccounts() {
+        return accountDao.getAccounts();
+    }
+
+    @Override
+    @Transactional
+    public Account getAccount(Integer accountNo) {
+        return accountDao.getAccount(accountNo);
+    }
+
+    @Override
+    @Transactional
+    public boolean deleteAccount(int accountNo) {
+        return accountDao.deleteAccount(accountNo);
+    }
+
 }
