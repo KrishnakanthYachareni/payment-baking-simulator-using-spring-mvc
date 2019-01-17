@@ -21,7 +21,7 @@
     <tf:htmlHead/>
 </head>
 <body>
-<h2>Create New Account</h2>
+<h2>Please Fill Up the Form Details</h2>
 <tf:image src="Rupay-Logo.png" id="paypalLogo"/>
 <form:form action="saveAccount" modelAttribute="account" method="post">
     <table>
@@ -73,7 +73,7 @@
         </tr>
         <tr>
             <td colspan="2" align="center">
-                <input type="submit" value="Create Account" name="btnSubmit"/>
+                <input type="submit" value="Save Account" name="btnSubmit"/>
             </td>
         </tr>
     </table>

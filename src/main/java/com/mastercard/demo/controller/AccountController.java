@@ -6,6 +6,7 @@ package com.mastercard.demo.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mastercard.demo.model.Account;
+import com.mastercard.demo.services.AccountService;
 
 @Controller
 @RequestMapping("/bankapp")
 public class AccountController {
+
+    @Autowired
+    private AccountService accountService;
 
     //  InitBinder annotation works as a pre-processor,when web request comes to the controller this snippet will execute first. Ths  can be used to apply custom rules for the formF
     @InitBinder
@@ -37,7 +42,7 @@ public class AccountController {
     @RequestMapping("/new")
     public String newAccount(Model model) {
         model.addAttribute("account", new Account());
-        return "newAccount";
+        return "account-form";
     }
 
     @RequestMapping("/showAccount")
@@ -74,9 +79,10 @@ public class AccountController {
 
         // bindingResult.rejectValue("accountNo", "error.message.mandatory");
         if (bindingResult.hasErrors()) {
-            return "newAccount";
+            return "account-form";
         } else {
-            return "showAccount";
+            accountService.saveAccount(account);
+            return "redirect:/list";
         }
     }
 
