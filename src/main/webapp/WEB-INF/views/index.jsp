@@ -16,11 +16,73 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>BankApp</title>
     <tf:htmlHead title="KB Bank:Home"/>
 </head>
 <body>
-<h1>Welcome to KR Bank Application home page</h1>
-<a href="${pageContext.request.contextPath}/bankapp/new">Create New Account</a>
+<%--<h1>Welcome to KR Bank Application home page</h1>
+<a href="${pageContext.request.contextPath}/bankapp/new">Create New Account</a>--%>
+<div class="container">
+    <%@include file="header.jsp" %>
+
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
+            <div class="jumbotron">
+                <h1 class="display-4">Welcome to KR Bank</h1>
+                <p class="lead">
+                    Happiness = A Good Bank Account, A Good Cook and a Good Digestion - Krishnakanth
+                </p>
+                <a href="${pageContext.request.contextPath}/bankapp/new" class="btn btn-lg btn-success">Register
+                    Here</a>
+                <p><br/>Existing Users : <a href="${pageContext.request.contextPath}/user/new">Login Here</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
+            <div class="card" style="height: 200px">
+                <div class="card-header">Online</div>
+                <img src="<spring:url value='${pageContext.request.contextPath}/static/style/images/card1.png' />"
+                     class="card-img-top" alt="Online"/>
+                <div class="card-body">
+                    <p class="card-text">200+ Transactions via NetBanking</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
+            <div class="card" style="height: 200px">
+                <div class="card-header">Online</div>
+                <img src="<spring:url value='${pageContext.request.contextPath}/static/style/images/card2.png' />"
+                     class="card-img-top" alt="Online"/>
+                <div class="card-body">
+                    <p class="card-text">200+ Transactions via NetBanking</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
+            <div class="card" style="height: 200px">
+                <div class="card-header">Online</div>
+                <img src="<spring:url value='${pageContext.request.contextPath}/static/style/images/card3.png' />"
+                     class="card-img-top" alt="Online"/>
+                <div class="card-body">
+                    <p class="card-text">200+ Transactions via NetBanking</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
+            <div class="card" style="height: 200px">
+                <div class="card-header">Online</div>
+                <img src="<spring:url value='${pageContext.request.contextPath}/static/style/images/card4.png' />"
+                     class="card-img-top" alt="Online"/>
+                <div class="card-body">
+                    <p class="card-text">200+ Transactions via NetBanking</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%@include file="footer.jsp" %>
 </body>
 </html>
