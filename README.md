@@ -1,3 +1,14 @@
+### Application start up
+To run the application no setting are required, You just need to import the project as maven then follow below instructions to get access the web pages.
+1. App Url: `http://localhost:8080/bankapp/`
+    * Username: `krishna` or `user`
+    * Password: `password`
+2. H2 DB Url: `http://localhost:8080/h2/`
+    * Driver Class `org.h2.Driver`
+    * JDBC URL `jdbc:h2:mem:testdb`
+    * Username `sa`
+    * Password ` `
+
 ### Springframework Terminology
 Important points about spring framework
 #### 1. @CrossOrigin:

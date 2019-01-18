@@ -33,7 +33,7 @@
                 </p>
                 <a href="${pageContext.request.contextPath}/bankapp/new" class="btn btn-lg btn-success">Register
                     Here</a>
-                <p><br/>Existing Users : <a href="${pageContext.request.contextPath}/user/new">Login Here</a>
+                <p><br/>Existing Users : <a href="${pageContext.request.contextPath}/user/login">Login Here</a>
             </div>
         </div>
     </div>

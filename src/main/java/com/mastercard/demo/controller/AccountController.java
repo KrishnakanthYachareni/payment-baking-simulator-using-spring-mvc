@@ -9,6 +9,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -118,6 +120,9 @@ public class AccountController {
     public String listAccounts(Model model) {
         List<Account> accounts = accountService.getAccounts();
         model.addAttribute("accounts", accounts);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName(); // get logged in user name
+        model.addAttribute("username", name);
         return "listAccounts";
     }
 

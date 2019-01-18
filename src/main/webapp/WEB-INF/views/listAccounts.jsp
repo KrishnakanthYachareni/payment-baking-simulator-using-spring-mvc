@@ -23,6 +23,18 @@
     <%@include file="header.jsp" %>
     <div class="row">
         <div class="col-12">
+            <c:url value="/logout" var="logoutUrl"/>
+            <form action="${logoutUrl}" method="post" id="logoutForm">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </form>
+
+            <p class="display-5">
+                Welcome : ${username} , <a href="/user/login?logout= ">Logout</a>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
             <a href="<c:url value="/bankapp/new"/>" class="btn btn-lg btn-primary">Add New Account</a>
         </div>
     </div>
